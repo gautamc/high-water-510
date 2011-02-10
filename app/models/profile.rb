@@ -17,7 +17,7 @@ class Profile
   #attr_accessor :address_attributes
   
   embeds_one :address
-  embedded_in :profile, :inverse_of => :profile
+  embedded_in :user, :inverse_of => :profile
  
   #accepts_nested_attributes_for :address
   

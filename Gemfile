@@ -9,5 +9,5 @@ gem "heroku", "1.17.8"
 
 group :test do
  gem 'rspec-rails'
- gem 'mongoid-rspec', '1.2.1'
+ gem 'mongoid-rspec'
 end

@@ -1,0 +1,20 @@
+<p>
+  Email: <%= @profile.user.email %><br />
+  First Name: <%= @profile.first_name %><br />
+  Last Name: <%= @profile.last_name %><br />
+  <%- if @profile.dob -%>
+  Date Of Birth: <%= @profile.dob.strftime("%b. %d, %Y") %><br />
+  <%- end -%>
+  Mobile Number: <%= @profile.mobile_num -%><br />
+
+  Address Line 1: <%= @profile.address.address_line1 -%><br />
+  Address Line 2: <%= @profile.address.address_line2 -%><br />
+  City: <%= @profile.address.city -%><br />
+  State: <%= @profile.address.state -%><br />
+  ZIP: <%= @profile.address.zip -%><br />
+  Country: <%= @profile.address.country -%><br />
+  
+</p>
+
+<%= link_to("Edit Profile", edit_profile_path(@profile)) -%> |
+<%= link_to("XML Feed Of All Profiles", profiles_path(:format => :xml)) -%> 

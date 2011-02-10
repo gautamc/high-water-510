@@ -9,9 +9,21 @@ class User
     :recoverable, :rememberable, :trackable, :validatable
   )
   
-  field :name
-  validates_presence_of :name
-  validates_uniqueness_of :name, :email, :case_sensitive => false
-  attr_accessible :name, :email, :password, :password_confirmation
+  validates_uniqueness_of :email, :case_sensitive => false
+  attr_accessible :email, :password, :password_confirmation
+
+  embeds_one :profile
+  
+  before_create :generate_profile
+
+  protected
+  def generate_profile
+    profile = Profile.new
+    profile.skip_validations = true
+    address = Address.new
+    profile.skip_validations = true
+    profile.address = address
+    self.profile = profile
+  end
   
 end

@@ -15,3 +15,7 @@ p.notice {
 p.alert {
   color: red;  
 }
+
+a.heading {
+  text-decoration: none;
+}

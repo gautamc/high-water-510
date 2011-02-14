@@ -6,7 +6,7 @@ pt-BR:
       not_locked: 'não foi bloqueado'
       not_saved:
         one: '1 erro impediu que %{model} fosse gravado:'
-        other: '%{count} erros impediram que %{model} fosse gravado:'
+        other: '%{count} erros impediram que %{resource} fosse gravado:'
 
   devise:
     failure:

@@ -31,7 +31,7 @@ GEM
     arel (2.0.8)
     bcrypt-ruby (2.1.4)
     bson (1.2.1)
-    bson_ext (1.2.0)
+    bson_ext (1.2.1)
     builder (2.1.2)
     configuration (1.2.0)
     devise (1.2.rc)
@@ -39,6 +39,8 @@ GEM
       orm_adapter (~> 0.0.2)
       warden (~> 1.0.2)
     diff-lcs (1.1.2)
+    dragonfly (0.8.2)
+      rack
     erubis (2.6.6)
       abstract (>= 1.0.0)
     heroku (1.17.8)
@@ -61,9 +63,9 @@ GEM
     mime-types (1.16)
     mongo (1.2.1)
       bson (>= 1.2.1)
-    mongoid (2.0.0.rc.7)
+    mongoid (2.0.0.beta.20)
       activemodel (~> 3.0)
-      mongo (~> 1.2)
+      mongo (~> 1.1)
       tzinfo (~> 0.3.22)
       will_paginate (~> 3.0.pre)
     mongoid-rspec (1.2.1)
@@ -73,6 +75,8 @@ GEM
     orm_adapter (0.0.4)
     polyglot (0.3.1)
     rack (1.2.1)
+    rack-cache (1.0)
+      rack (>= 0.4)
     rack-mount (0.6.13)
       rack (>= 1.0.0)
     rack-test (0.5.7)
@@ -118,11 +122,14 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bson_ext (= 1.2.0)
+  bson (= 1.2.1)
+  bson_ext (= 1.2.1)
   devise (= 1.2.rc)
+  dragonfly (~> 0.8.1)
   heroku (= 1.17.8)
   jquery-rails (>= 0.2.6)
-  mongoid (= 2.0.0.rc.7)
+  mongoid (= 2.0.0.beta.20)
   mongoid-rspec
+  rack-cache
   rails (= 3.0.4)
-  rspec-rails
+  rspec-rails (~> 2.0)

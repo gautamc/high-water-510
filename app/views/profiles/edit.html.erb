@@ -1,6 +1,10 @@
+<div class="breadcrumb">
+  <a href="/">Dashboard</a> > Edit My Profile
+</div>
+
 <h2>Edit Profile</h2>
 
-<%= form_for(@profile, :url => profile_path(@profile), :html => { :method => :put }) do |f| %>
+<%= form_for(@profile, :url => profile_path(@profile), :html => { :method => :put, :multipart => true }) do |f| %>
 
   <div style="width: 800px; border: none;">
     <%- unless @profile.errors[:first_name].empty? -%>
@@ -127,6 +131,18 @@
       <%= address_fields.text_field :country %>
     </div>
 
+    <div style="width: 800px; border: none;">
+      <label>My Avatar</label>
+      <%= f.file_field :avatar %>
+    </div>
+
+    <div style="width: 800px; border: none;">
+      <label>
+	<%= f.check_box :remove_avatar %>
+	Remove avatar
+      </label>
+    </div>
+    
   <%- end -%>
  
   <p><%= f.submit "Update" %></p>

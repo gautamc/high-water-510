@@ -1,0 +1,9 @@
+<div class="breadcrumb">
+  <a href="/">Dashboard</a> > <a href="/offers">My Offers</a> > Offer #<%= @offer.id -%>
+</div>
+
+<p id="notice"><%= notice %></p>
+
+
+<%= link_to 'Edit', edit_offer_path(@offer) %> |
+<%= link_to 'Back', offers_path %>

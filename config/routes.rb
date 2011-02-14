@@ -3,6 +3,7 @@ Stark::Application.routes.draw do
   root :to => "home#index"
   devise_for :users
   resources :profiles, :only => [:index, :show, :edit, :update]
+  resources :offers
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

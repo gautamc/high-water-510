@@ -1,0 +1,81 @@
+<%= form_for(@offer) do |f| %>
+  <% if @offer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@offer.errors.count, "error") %> prohibited this offer from being saved:</h2>
+    </div>
+  <% end %>
+  
+  <div style="width: 800px; border: none;">
+    <%- unless @offer.errors[:title].empty? -%>
+    <span class="error">
+      <%= @offer.errors[:title].join(", ") -%>
+    </span>
+    <%- end -%>
+    <span style="clear: none;">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+    </span>
+  </div>
+
+  <br />
+
+  <div style="width: 800px; border: none;">
+    <%- unless @offer.errors[:original_price].empty? -%>
+    <span class="error">
+      <%= @offer.errors[:original_price].join(", ") -%>
+    </span>
+    <%- end -%>
+    <span style="clear: none;">
+    <%= f.label :original_price %><br />
+    <%= f.text_field :original_price %>
+    </span>
+  </div>
+
+  <br />
+
+  <div style="width: 800px; border: none;">
+    <%- unless @offer.errors[:final_price].empty? -%>
+    <span class="error">
+      <%= @offer.errors[:final_price].join(", ") -%>
+    </span>
+    <%- end -%>
+    <span style="clear: none;">
+    <%= f.label :final_price %><br />
+    <%= f.text_field :final_price %>
+    </span>
+  </div>
+
+  <br />
+  
+  <div style="width: 800px; border: none;">
+    <%- unless @offer.errors[:expires_at].empty? -%>
+    <span class="error">
+      <%= @offer.errors[:expires_at].join(", ") -%>
+    </span>
+    <%- end -%>
+    <span style="clear: none;">
+    <%= f.label :expires_at %><br />
+    <%= f.datetime_select :expires_at %>
+    </span>
+  </div>
+
+  <br />
+
+  <div style="width: 800px; border: none;">
+    <%- unless @offer.errors[:url].empty? -%>
+    <span class="error">
+      <%= @offer.errors[:url].join(", ") -%>
+    </span>
+    <%- end -%>
+    <span style="clear: none;">
+    <%= f.label :url %><br />
+    <%= f.text_field :url %>
+    </span>
+  </div>
+
+  <br />
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

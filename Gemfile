@@ -6,8 +6,8 @@ gem "bson", "1.2.1"
 gem "bson_ext", "1.2.1"
 gem "devise", "1.2.rc"
 gem 'jquery-rails', '>= 0.2.6'
-gem 'rack-cache', :require => 'rack/cache'
-gem 'dragonfly', '~>0.8.1'
+#gem 'rack-cache', :require => 'rack/cache'
+#gem 'dragonfly', '~>0.8.1'
 gem "heroku", "1.17.8"
 
 

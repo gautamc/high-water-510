@@ -1,3 +1,4 @@
+=begin
 require 'dragonfly'
 
 app = Dragonfly[:images]
@@ -13,3 +14,4 @@ end
 
 # Allow all mongoid models to use the macro 'image_accessor'
 app.define_macro_on_include(Mongoid::Document, :image_accessor)
+=end

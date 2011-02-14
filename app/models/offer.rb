@@ -8,6 +8,8 @@ class Offer
   field :expires_at, :type => DateTime
   field :url
   
+  validates_presence_of :title, :original_price
+  validates_length_of :title, :minimum => 5
   validates_numericality_of :original_price
   validates_numericality_of :final_price
   

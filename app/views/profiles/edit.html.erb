@@ -35,14 +35,14 @@
   <br />
 
   <div style="width: 800px; border: none;">
-    <%- unless @profile.errors[:dob].empty? -%>
+    <%- unless @profile.errors[:dob] -%>
     <span class="error">
       <%= @profile.errors[:dob] -%>
     </span>
     <%- end -%>
     <span style="clear: none;">
-    <%= f.label :dob %><br />
-    <%= f.date_select :dob, :start_year => 1900 %>
+      <%= f.label :dob %><br />
+      <%= f.date_select :dob, :start_year => 1900 %>
     </span>
   </div>
 

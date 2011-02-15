@@ -1,0 +1,6 @@
+<center>
+  <h1>Ofertas recentes!</h1>
+  <%- @offers.each do |offer| -%>
+    <%= offer.title %>, disponível antes <%= offer.expires_at.strftime("%b. %d %Y - %A, %I:%M %p") %><br />
+  <%- end -%>
+</center>

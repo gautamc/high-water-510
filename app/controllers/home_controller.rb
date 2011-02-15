@@ -4,6 +4,8 @@ class HomeController < ApplicationController
     
     if user_signed_in?
       render :template => '/home/user_index'
+    else
+      @offers = Offer.all
     end
     
   end

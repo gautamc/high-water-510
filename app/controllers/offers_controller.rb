@@ -5,7 +5,7 @@ class OffersController < ApplicationController
   # GET /offers
   # GET /offers.xml
   def index
-    @offers = Offer.all
+    @offers = Offer.where(:profile_id => current_user.profile.id)
 
     respond_to do |format|
       format.html # index.html.erb

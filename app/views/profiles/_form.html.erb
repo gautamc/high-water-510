@@ -31,8 +31,8 @@
     <%= f.label :offers_xml_url %><br />
     <%= f.text_field :offers_xml_url %>
     <%- unless @profile.errors[:offers_xml_url].empty? -%>
+    <br />
     <span class="error">
-      <br />
       <%= @profile.errors[:offers_xml_url] -%>
     </span>
     <%- end -%>

@@ -1,0 +1,7 @@
+pt-BR:
+  :remember_me: "lembrar de mim"
+  :email: "e-mail"
+  :password: "senha"
+  :password_confirmation: "confirmar senha"
+  :forgot_passwd_question: "Esqueceu sua senha?"
+  :preferred_language: "Idioma preferido"

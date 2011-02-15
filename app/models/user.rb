@@ -9,17 +9,15 @@ class User
     :recoverable, :rememberable, :trackable, :validatable
   )
   
+  field :preferred_language
+  
   validates_uniqueness_of :email, :case_sensitive => false
   attr_accessible :email, :password, :password_confirmation
-
-  embeds_one :profile
+  
+  references_one :profile
   accepts_nested_attributes_for :profile
   
   before_create :generate_profile
-  
-  def profile_attributes=(params)
-    puts params.inspect
-  end
   
   protected
   def generate_profile

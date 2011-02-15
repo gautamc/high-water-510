@@ -12,6 +12,7 @@ class Offer
   validates_length_of :title, :minimum => 5
   validates_numericality_of :original_price
   validates_numericality_of :final_price
+  validates_format_of :url, :with => /^(http|https):\/\/.*/
   
   referenced_in :profile
   

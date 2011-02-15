@@ -3,8 +3,11 @@ class ApplicationController < ActionController::Base
 
   before_filter :set_locale
   def set_locale
-    # if params[:locale] is nil then I18n.default_locale will be used
-    I18n.locale = params[:locale]
+    if params[:locale]
+      session[:locale] = params[:locale]
+    end
+    session[:locale] ||=  "pt-BR"
+    I18n.locale = session[:locale]
   end
   
   def after_sign_in_path_for(resource_or_scope)

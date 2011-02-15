@@ -6,6 +6,9 @@ class Profile
   field :last_name
   field :dob, :type => Date
   field :mobile_num
+  field :site_url
+  field :sitemap
+  field :offers_xml_url
   field :slug
   
   #field :avatar_uid
@@ -13,14 +16,18 @@ class Profile
   
   validates_presence_of :first_name, :last_name, :mobile_num, :unless => lambda {|r| r.skip_validations}
   validates_length_of  :first_name, :last_name, :minimum => 2, :unless => lambda {|r| r.skip_validations}
+  
+  validates_format_of :site_url, :with => /^(http|https):\/\/.*/, :allow_nil => true
+  validates_format_of :sitemap, :with => /^(http|https):\/\/.*/, :allow_nil => true
+  validates_format_of :offers_xml_url, :with => /^(http|https):\/\/.*/, :allow_nil => true
+
   attr_accessible(
-    :first_name, :last_name, :mobile_num, :dob
+    :first_name, :last_name, :mobile_num, :dob, :site_url, :sitemap, :offers_xml_url
   )
   
-  embeds_one :address
-  embedded_in :user, :inverse_of => :profile
-
+  referenced_in :user, :inverse_of => :profile  
   references_many :offers
+  embeds_one :address
   
   attr_accessor :skip_validations, :remove_avatar
 

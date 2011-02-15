@@ -4,6 +4,11 @@
   </li>
 <% else %>
   <li>
-  <%= link_to('Login', new_user_session_path)  %>  
+  <%= link_to(t(:login), new_user_session_path)  %>  
   </li>
 <% end %>
+<%- unless request.method == "POST" -%>
+<li>
+  <%= select_tag( :lang, options_for_select(t(:supported_languages), session[:locale]), :class => 'lang_selector' ) -%>
+</li>
+<%- end -%>

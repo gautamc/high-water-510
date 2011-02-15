@@ -1,0 +1,7 @@
+en:
+  :remember_me: "Remember Me"
+  :email: "e-mail"
+  :password: "Password"
+  :password_confirmation: "Confirm Password"
+  :forgot_passwd_question: "Forgot your password?"
+  :preferred_language: "Preferred Language"

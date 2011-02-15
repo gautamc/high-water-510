@@ -1,15 +1,4 @@
 pt-BR:
-
-  :app_name: "Console de Gerenciamento de Contas"
-  :logout: "Logout"
-  :login: "Login"
-  :sign_up: "Inscreva-se"
-  :remember_me: "lembrar de mim"
-  :email: "e-mail"
-  :password: "senha"
-  :password_confirmation: "confirmar senha"
-  :forgot_passwd_question: "Esqueceu sua senha?"
-
   # formatos de data e hora
   date:
     formats:

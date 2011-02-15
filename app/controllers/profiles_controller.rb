@@ -15,11 +15,13 @@ class ProfilesController < ApplicationController
   end
   
   def edit
-    @profile = current_user.profile
+    @profile = Profile.find(params[:id])
+  rescue Mongoid::Errors::DocumentNotFound
+    redirect_to(root_path)
   end
 
   def update
-    @profile = current_user.profile
+    @profile = Profile.find(params[:id])
     @profile.attributes = params[:profile]
     @profile.address.attributes = params[:profile][:address]
     if @profile.valid? && @profile.address.valid?

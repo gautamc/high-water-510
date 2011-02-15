@@ -1,0 +1,23 @@
+<div class="breadcrumb">
+  <a href="/">Painel de instrumentos</a> > Meu Perfil
+</div>
+
+<p>
+  E-mail: <%= @profile.user.email %><br />
+  Nome: <%= @profile.first_name %><br />
+  Sobrenome: <%= @profile.last_name %><br />
+  <%- if @profile.dob -%>
+  Data de Nascimento: <%= @profile.dob.strftime("%b. %d, %Y") %><br />
+  <%- end -%>
+  Mobile Number: <%= @profile.mobile_num -%><br />
+
+  Endereço Linha 1: <%= @profile.address.address_line1 -%><br />
+  Endereço Linha 2: <%= @profile.address.address_line2 -%><br />
+  Cidade: <%= @profile.address.city -%><br />
+  Província: <%= @profile.address.state -%><br />
+  ZIP: <%= @profile.address.zip -%><br />
+  País: <%= @profile.address.country -%><br />
+  
+</p>
+
+<%= link_to("Editar perfil", edit_profile_path(@profile)) -%>

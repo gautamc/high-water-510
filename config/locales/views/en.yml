@@ -1,0 +1,9 @@
+en:
+  :app_name: "Account Management Console"
+
+  :supported_languages: [[English, en], [Portuguese, pt-BR]]
+
+  :logout: "Logout"
+  :login: "Login"
+  :sign_up: "Sign Up"
+  :edit_account: "Edit Account"

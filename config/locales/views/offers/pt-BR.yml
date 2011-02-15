@@ -1,0 +1,9 @@
+pt-BR:
+  :title: Título
+  :original_price: "Preço original"
+  :final_price: "Preço Final"
+  :expires_at: "Expira Em"
+  :create_offer: "Criar Oferta"
+
+  :create_success: "Oferta foi criado com sucesso."
+  :update_success: "Oferta foi atualizado com sucesso."

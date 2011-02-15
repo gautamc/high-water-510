@@ -1,0 +1,10 @@
+<div class="breadcrumb">
+  <a href="/">Painel de instrumentos</a> > <a href="/offers">Minhas Ofertas</a> > Oferta Edição #<%= @offer.title -%>
+</div>
+
+<h1>Oferta Edição</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @offer %> |
+<%= link_to 'Voltar', offers_path %>

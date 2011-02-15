@@ -48,7 +48,7 @@ class OffersController < ApplicationController
 
     respond_to do |format|
       if @offer.save
-        format.html { redirect_to(@offer, :notice => 'Offer was successfully created.') }
+        format.html { redirect_to(@offer, :notice => t(:create_success)) }
         format.xml  { render :xml => @offer, :status => :created, :location => @offer }
       else
         format.html { render :action => "new" }
@@ -64,7 +64,7 @@ class OffersController < ApplicationController
 
     respond_to do |format|
       if @offer.update_attributes(params[:offer])
-        format.html { redirect_to(@offer, :notice => 'Offer was successfully updated.') }
+        format.html { redirect_to(@offer, :notice => t(:update_success)) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

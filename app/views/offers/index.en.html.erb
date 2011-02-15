@@ -11,7 +11,6 @@
     <th>Final Price</th>
     <th>Expires At</th>
     <th>URL</th>
-    <th>Created by</th>
     <th></th>
     <th></th>
   </tr>
@@ -26,9 +25,6 @@
       <a href="<%= offer.url -%>">
 	<%= offer.url -%>
       </a>
-    </td>
-    <td>
-      <%= User.where("profile._id" => offer.profile_id).first.email -%> |
     </td>
     <td><%= link_to 'Show', offer %></td>
     <td><%= link_to 'Edit', edit_offer_path(offer) %></td>

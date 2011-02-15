@@ -26,7 +26,7 @@ class ProfilesController < ApplicationController
     @profile.address.attributes = params[:profile][:address]
     if @profile.valid? && @profile.address.valid?
       @profile.save!
-      flash[:notice] = "Your profile was updated successfully!"
+      flash[:notice] = t(:profile_update_success)
       redirect_to(edit_profile_path(current_user.profile))
     else
       render :action => "edit"

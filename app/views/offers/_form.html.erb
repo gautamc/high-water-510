@@ -1,81 +1,81 @@
 <%= form_for(@offer) do |f| %>
-  <% if @offer.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@offer.errors.count, "error") %> prohibited this offer from being saved:</h2>
-    </div>
-  <% end %>
   
   <div style="width: 800px; border: none;">
+    <span style="clear: none;">
+    <%= f.label t(:title) %><br />
+    <%= f.text_field :title %>
     <%- unless @offer.errors[:title].empty? -%>
+    <br />
     <span class="error">
       <%= @offer.errors[:title].join(", ") -%>
     </span>
     <%- end -%>
-    <span style="clear: none;">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
     </span>
   </div>
 
   <br />
 
   <div style="width: 800px; border: none;">
+    <span style="clear: none;">
+    <%= f.label t(:original_price) %><br />
+    <%= f.text_field :original_price %>
     <%- unless @offer.errors[:original_price].empty? -%>
+    <br />
     <span class="error">
       <%= @offer.errors[:original_price].join(", ") -%>
     </span>
     <%- end -%>
-    <span style="clear: none;">
-    <%= f.label :original_price %><br />
-    <%= f.text_field :original_price %>
     </span>
   </div>
 
   <br />
 
   <div style="width: 800px; border: none;">
+    <span style="clear: none;">
+    <%= f.label t(:final_price) %><br />
+    <%= f.text_field :final_price %>
     <%- unless @offer.errors[:final_price].empty? -%>
+    <br />
     <span class="error">
       <%= @offer.errors[:final_price].join(", ") -%>
     </span>
     <%- end -%>
-    <span style="clear: none;">
-    <%= f.label :final_price %><br />
-    <%= f.text_field :final_price %>
     </span>
   </div>
 
   <br />
   
   <div style="width: 800px; border: none;">
+    <span style="clear: none;">
+    <%= f.label t(:expires_at) %><br />
+    <%= f.datetime_select :expires_at %>
     <%- unless @offer.errors[:expires_at].empty? -%>
+    <br />
     <span class="error">
       <%= @offer.errors[:expires_at].join(", ") -%>
     </span>
     <%- end -%>
-    <span style="clear: none;">
-    <%= f.label :expires_at %><br />
-    <%= f.datetime_select :expires_at %>
     </span>
   </div>
 
   <br />
 
   <div style="width: 800px; border: none;">
+    <span style="clear: none;">
+    <%= f.label :url %><br />
+    <%= f.text_field :url %>
     <%- unless @offer.errors[:url].empty? -%>
+    <br />
     <span class="error">
       <%= @offer.errors[:url].join(", ") -%>
     </span>
     <%- end -%>
-    <span style="clear: none;">
-    <%= f.label :url %><br />
-    <%= f.text_field :url %>
     </span>
   </div>
 
   <br />
   
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit t(:create_offer) %>
   </div>
 <% end %>

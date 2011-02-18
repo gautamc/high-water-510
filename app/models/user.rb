@@ -2,6 +2,10 @@ class User
   
   include Mongoid::Document
   
+  # Does not help in making the nested attribute work, hence
+  # implemented nested_attributes as a part of this model
+  #include Mongoid::NestedAttributes
+  
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise(
@@ -9,24 +13,25 @@ class User
     :recoverable, :rememberable, :trackable, :validatable
   )
   
-  field :preferred_language
+  field :name
+  field :telephone
+
+  references_one :site
+  accepts_nested_attributes_for :site
   
-  validates_uniqueness_of :email, :case_sensitive => false
-  attr_accessible :email, :password, :password_confirmation
+  validates_presence_of :name, :telephone
+  validates_associated :site
   
-  references_one :profile
-  accepts_nested_attributes_for :profile
+  attr_accessible :email, :password, :password_confirmation, :name, :telephone, :site_attributes
   
-  before_create :generate_profile
+  after_save lambda {
+    |record|
+    record.site.save! if !record.site.persisted? || record.site.changed?
+  }
   
-  protected
-  def generate_profile
-    profile = Profile.new
-    profile.skip_validations = true
-    address = Address.new
-    profile.skip_validations = true
-    profile.address = address
-    self.profile = profile
+  def site_attributes=(params)
+    self.site ||= Site.new
+    self.site.attributes = params
   end
   
 end

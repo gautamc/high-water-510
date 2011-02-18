@@ -1,0 +1,22 @@
+en:
+  mongoid:
+    errors:
+      models:
+        offer:
+          attributes:
+            title:
+              blank: 'Can not be blank'
+              too_short: "is too short (minimum is 5 characters)"
+            final_price:
+              blank: 'Can not be blank'
+              not_a_number: 'is not a numeric value'
+            original_price:
+              blank: 'Can not be blank'
+              not_a_number: 'is not a numeric value'
+            discount_percentage:
+              blank: 'Can not be blank'
+              not_a_number: 'is not a numeric value'
+            expires_at:
+              blank: 'Can not be blank'
+            url:
+              invalid: 'format is not valid (Must be like http://sitename...)'

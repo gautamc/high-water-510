@@ -1,0 +1,9 @@
+en:
+  mongoid:
+    errors:
+      models:
+        site:
+          attributes:
+            url:
+              blank: 'can not be blank'
+              invalid: 'format is not valid (Must be like http://sitename...)'

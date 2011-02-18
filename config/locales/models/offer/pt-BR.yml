@@ -1,0 +1,22 @@
+pt-BR:
+  mongoid:
+    errors:
+      models:
+        offer:
+          attributes:
+            title:
+              blank: 'Não pode estar em branco'
+              too_short: "é muito curto (mínimo de 5 caracteres)"
+            final_price:
+              blank: 'Não pode estar em branco'
+              not_a_number: 'não é um valor numérico'
+            original_price:
+              blank: 'Não pode estar em branco'
+              not_a_number: 'não é um valor numérico'
+            discount_percentage:
+              blank: 'Não pode estar em branco'
+              not_a_number: 'não é um valor numérico'
+            expires_at:
+              blank: 'Não pode estar em branco'
+            url:
+              invalid: "não é válido"

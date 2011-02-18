@@ -1,0 +1,14 @@
+pt-BR:
+  mongoid:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "Can not be blank"
+            password:
+              blank: "Can not be blank"
+            name:
+              blank: "Can not be blank"
+            telephone:
+              blank: "Can not be blank"

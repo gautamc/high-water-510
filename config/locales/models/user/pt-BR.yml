@@ -1,0 +1,19 @@
+pt-BR:
+  mongoid:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: 'Não pode estar em branco'
+              taken: 'Este e-mail já está tomada'
+            password:
+              blank: 'Não pode estar em branco'
+              confirmation: "não coincide com a confirmação"
+              too_short: "é muito curto (mínimo de 6 caracteres)"
+            name:
+              blank: 'Não pode estar em branco'
+            telephone:
+              blank: 'Não pode estar em branco'
+            site:
+              invalid: "não é válido"

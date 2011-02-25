@@ -14,7 +14,7 @@ class HomeController < ApplicationController
 
       render :template => '/home/user_index'
     else
-      @offers = Offer.all
+      @sites = Site.all
     end
     
   end

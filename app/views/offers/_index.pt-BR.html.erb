@@ -25,7 +25,7 @@
       </a>
     </td>
     <td>
-      <%= link_to 'Editar', edit_offer_path(offer), :remote => true %>
+      <%= link_to 'Editar', edit_offer_path(offer), :remote => true, :id => "edit_view_loader_#{offer.id}" %>
       <span id="offer_edit_screen_loading_<%= offer.id -%>" style="display: none;"><strong>Loading...</strong></span>
 
 <script>

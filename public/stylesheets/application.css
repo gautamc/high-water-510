@@ -24,3 +24,7 @@ a.heading {
 select.lang_selector {
   font-size: 10px;
 }
+
+.field_error {
+  color: red;
+}

@@ -1,12 +1,11 @@
-<%= form_for(@offer) do |f| %>
+<%= form_for(@offer, :remote => true, :html => { "data-type" => 'script' }) do |f| %>
   
-  <div style="width: 800px; border: none;">
+  <div style=" border: none;">
     <span style="clear: none;">
     <%= f.label t(:title) %><br />
     <%= f.text_field :title %>
     <%- unless @offer.errors[:title].empty? -%>
-    <br />
-    <span class="error">
+    <span class="field_error">
       <%= @offer.errors[:title].join(", ") -%>
     </span>
     <%- end -%>
@@ -15,13 +14,12 @@
 
   <br />
 
-  <div style="width: 800px; border: none;">
+  <div style="border: none;">
     <span style="clear: none;">
     <%= f.label t(:original_price) %><br />
     <%= f.text_field :original_price %>
     <%- unless @offer.errors[:original_price].empty? -%>
-    <br />
-    <span class="error">
+    <span class="field_error">
       <%= @offer.errors[:original_price].join(", ") -%>
     </span>
     <%- end -%>
@@ -30,13 +28,12 @@
 
   <br />
 
-  <div style="width: 800px; border: none;">
+  <div style="border: none;">
     <span style="clear: none;">
     <%= f.label t(:final_price) %><br />
     <%= f.text_field :final_price %>
     <%- unless @offer.errors[:final_price].empty? -%>
-    <br />
-    <span class="error">
+    <span class="field_error">
       <%= @offer.errors[:final_price].join(", ") -%>
     </span>
     <%- end -%>
@@ -45,13 +42,12 @@
 
   <br />
 
-  <div style="width: 800px; border: none;">
+  <div style="border: none;">
     <span style="clear: none;">
     <%= f.label t(:discount_percentage) %><br />
     <%= f.text_field :discount_percentage %>
     <%- unless @offer.errors[:discount_percentage].empty? -%>
-    <br />
-    <span class="error">
+    <span class="field_error">
       <%= @offer.errors[:discount_percentage].join(", ") -%>
     </span>
     <%- end -%>
@@ -60,15 +56,14 @@
   
   <br />
   
-  <div style="width: 800px; border: none;">
+  <div style="border: none;">
     <span style="clear: none;">
     <%= f.label t(:expires_at) %><br />
     <span style="font-size: 4px;">
     <%= f.datetime_select :expires_at %>
     </span>
     <%- unless @offer.errors[:expires_at].empty? -%>
-    <br />
-    <span class="error">
+    <span class="field_error">
       <%= @offer.errors[:expires_at].join(", ") -%>
     </span>
     <%- end -%>
@@ -77,13 +72,12 @@
 
   <br />
 
-  <div style="width: 800px; border: none;">
+  <div style="border: none;">
     <span style="clear: none;">
     <%= f.label :url %><br />
     <%= f.text_field :url %>
     <%- unless @offer.errors[:url].empty? -%>
-    <br />
-    <span class="error">
+    <span class="field_error">
       <%= @offer.errors[:url].join(", ") -%>
     </span>
     <%- end -%>
@@ -93,6 +87,21 @@
   <br />
   
   <div class="actions">
-    <%= f.submit t(:create_offer) %>
+    <%= f.submit t(:save) %>
+    <span id="offer_loading" style="display: none;"><strong>Loading...</strong></span>
   </div>
 <% end %>
+
+<script>
+$(document).ready(function() {
+  if( $("#new_offer") ) {
+    $("#new_offer").bind("ajax:beforeSend", function() { $("#offer_loading").show(); } );
+    $("#new_offer").bind("ajax:complete", function() { $("#offer_loading").hide(); } );
+  }
+
+  if( $(".edit_offer") ) {
+    $(".edit_offer").bind("ajax:beforeSend", function() { $("#offer_loading").show(); } );
+    $(".edit_offer").bind("ajax:complete", function() { $("#offer_loading").hide(); } );
+  }
+});
+</script>

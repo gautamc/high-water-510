@@ -1,0 +1,10 @@
+<% if @offer.errors.any? %>
+
+  $("#create_update_offer_form").html("<%= escape_javascript(render(:partial => 'edit')) -%>");
+
+<%- else -%>
+
+  $("#create_update_offer_form").html("<%= escape_javascript(render(:partial => 'new')) -%>");
+  $("#all_offers_list").html("<%= escape_javascript(render(:partial => 'index')) -%>");
+
+<%- end -%>

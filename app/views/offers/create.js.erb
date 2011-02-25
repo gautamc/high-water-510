@@ -1,0 +1,12 @@
+<% if @offer.errors.any? %>
+
+  $("#create_update_offer_form").html("<%= escape_javascript(render(:partial => 'new')) -%>");
+
+<%- else -%>
+
+  var form_elem = $('#new_offer');
+  form_elem.find('input:text,textarea').val('');
+  form_elem.find('.field_error').hide();
+  $("#all_offers_list").html("<%= escape_javascript(render(:partial => 'index')) -%>");
+
+<%- end -%>

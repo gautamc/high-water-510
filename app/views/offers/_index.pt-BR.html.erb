@@ -5,6 +5,7 @@
     <th>Título</th>
     <th>Preço original</th>
     <th>Preço Final</th>
+    <th>Percentual de Desconto</th>
     <th>Expira Em</th>
     <th>URL</th>
     <th></th>
@@ -16,15 +17,28 @@
     <td><%= offer.title -%></td>
     <td><%= offer.original_price -%></td>
     <td><%= offer.final_price -%></td>
+    <td><%= offer.discount_percentage -%></td>
     <td><%= offer.expires_at.strftime("%b. %d %Y - %A, %I:%M %p") -%></td>
     <td>
       <a href="<%= offer.url -%>">
 	<%= offer.url -%>
       </a>
     </td>
-    <td><%= link_to 'Show', offer %></td>
-    <td><%= link_to 'Editar', edit_offer_path(offer) %></td>
-    <td><%= link_to 'Destruir', offer, :confirm => 'Você tem certeza?', :method => :delete %></td>
+    <td>
+      <%= link_to 'Editar', edit_offer_path(offer), :remote => true %>
+      <span id="offer_edit_screen_loading_<%= offer.id -%>" style="display: none;"><strong>Loading...</strong></span>
+
+<script>
+$(document).ready(function() {
+  $("#<%= 'edit_view_loader_' + offer.id.to_s %>").bind("ajax:beforeSend", function() { $("#offer_edit_screen_loading_<%= offer.id -%>").show(); } );
+  $("#<%= 'edit_view_loader_' + offer.id.to_s %>").bind("ajax:complete", function() { $("#offer_edit_screen_loading_<%= offer.id -%>").hide(); } );
+});
+</script>
+
+    </td>
+    <td>
+      <%= link_to 'Destruir', offer, :confirm => 'Você tem certeza?', :method => :delete %>
+    </td>
   </tr>
 <% end %>
 </table>

@@ -1,0 +1,13 @@
+<strong>Todos os Lugares</strong><br />
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Address</th>
+  </tr>
+  <% @places.each do |place| %>
+  <tr>
+    <td><%= place.name %></td>
+    <td><%= place.address %></td>
+  </tr>
+  <%- end -%>
+</table>

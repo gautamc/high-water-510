@@ -1,0 +1,45 @@
+<strong>Novo Place</strong><br />
+
+<%= form_for(@place, :url => places_path, :remote => true, :html => { "data-type" => 'script' }) do |f| %>
+
+  <div style="border: none;">
+    <span style="clear: none;">
+      <%= f.label t(:name) %><br />
+      <%= f.text_field :name %>
+      <%- unless @place.errors[:name].empty? -%>
+        <br />
+        <span class="error">
+          <%= @place.errors[:name].join(", ") -%>
+        </span>
+      <%- end -%>
+    </span>
+  </div>
+
+  <br />
+
+  <div style="border: none;">
+    <span style="clear: none;">
+    <%= f.label t(:address) %><br />
+    <%= f.text_area :address, :rows => 5 %>
+    <%- unless @place.errors[:address].empty? -%>
+    <br />
+    <span class="error">
+      <%= @place.errors[:address].join(", ") -%>
+    </span>
+    <%- end -%>
+    </span>
+  </div>
+
+  <p>
+    <%= f.submit t(:save) %>
+    <span id="place_loading" style="display: none;"><strong>Carregando...</strong></span>
+  </p>
+ 
+<%- end -%>
+
+<script>
+$(document).ready(function() {
+  $("#new_place").bind("ajax:beforeSend", function() { $("#place_loading").show(); } );
+  $("#new_place").bind("ajax:complete", function() { $("#place_loading").hide(); } );
+});
+</script>

@@ -1,9 +1,15 @@
 pt-BR:
-  :app_name: "Console de Gerenciamento de Contas"
+  app_name: "Console de Gerenciamento de Contas"
 
-  :supported_languages: [[Inglês, en], [Português, pt-BR]]
+  supported_languages: [[Inglês, en], [Português, pt-BR]]
 
-  :logout: "Logout"
-  :login: "Login"
-  :sign_up: "Cadastre-se"
-  :edit_account: "Editar conta"
+  logout: "Logout"
+  login: "Login"
+  sign_up: "Cadastre-se"
+  edit_account: "Editar conta"
+
+  name: "Nome"
+  address: "Endereço"
+
+  update: "Update"
+  save: "Guardar"

@@ -1,9 +1,10 @@
 en:
-  :title: "Title"
-  :original_price: "Original Price"
-  :final_price: "Final Price"
-  :expires_at: "Expires At"
-  :create_offer: "Create Offer"
+  title: "Title"
+  original_price: "Original Price"
+  final_price: "Final Price"
+  discount_percentage: "Discount Percentage"
+  expires_at: "Expires At"
+  create_offer: "Create Offer"
 
-  :create_success: "Offer was successfully created."
-  :update_success: "Offer was successfully updated."
+  create_success: "Offer was successfully created."
+  update_success: "Offer was successfully updated."

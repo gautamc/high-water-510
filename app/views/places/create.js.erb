@@ -1,0 +1,12 @@
+<% if @place.errors.any? %>
+
+  $("#new_place_form").html("<%= escape_javascript(render(:partial => 'new')) -%>");
+
+<%- else -%>
+
+  var form_elem = $('#new_place');
+  form_elem.find('input:text,textarea').val('');
+  form_elem.find('.error').hide();
+  $("#all_places_list").html("<%= escape_javascript(render(:partial => 'index')) -%>");
+
+<%- end -%>

@@ -1,0 +1,30 @@
+<strong>Listagem de ofertas</strong>
+
+<table>
+  <tr>
+    <th>Título</th>
+    <th>Preço original</th>
+    <th>Preço Final</th>
+    <th>Expira Em</th>
+    <th>URL</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @offers.each do |offer| %>
+  <tr>
+    <td><%= offer.title -%></td>
+    <td><%= offer.original_price -%></td>
+    <td><%= offer.final_price -%></td>
+    <td><%= offer.expires_at.strftime("%b. %d %Y - %A, %I:%M %p") -%></td>
+    <td>
+      <a href="<%= offer.url -%>">
+	<%= offer.url -%>
+      </a>
+    </td>
+    <td><%= link_to 'Show', offer %></td>
+    <td><%= link_to 'Editar', edit_offer_path(offer) %></td>
+    <td><%= link_to 'Destruir', offer, :confirm => 'Você tem certeza?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>

@@ -44,11 +44,28 @@
   </div>
 
   <br />
+
+  <div style="width: 800px; border: none;">
+    <span style="clear: none;">
+    <%= f.label t(:discount_percentage) %><br />
+    <%= f.text_field :discount_percentage %>
+    <%- unless @offer.errors[:discount_percentage].empty? -%>
+    <br />
+    <span class="error">
+      <%= @offer.errors[:discount_percentage].join(", ") -%>
+    </span>
+    <%- end -%>
+    </span>
+  </div>
+  
+  <br />
   
   <div style="width: 800px; border: none;">
     <span style="clear: none;">
     <%= f.label t(:expires_at) %><br />
+    <span style="font-size: 4px;">
     <%= f.datetime_select :expires_at %>
+    </span>
     <%- unless @offer.errors[:expires_at].empty? -%>
     <br />
     <span class="error">

@@ -1,0 +1,10 @@
+en:
+  mongoid:
+    errors:
+      models:
+        place:
+          attributes:
+            name:
+              blank: 'Can not be blank'
+            address:
+              blank: 'Can not be blank'

@@ -1,0 +1,29 @@
+<%= form_for(@user, :url => registration_path(@user), :html => { :method => :put }) do |f| %>
+  <%#= devise_error_messages! %>
+
+  <p><%= f.label t(:name) %><br />
+  <%= f.text_field :name %></p>
+
+  <p><%= f.label :email %><br />
+  <%= f.email_field :email %></p>
+
+  <p><%= f.label t(:telephone) %><br />
+  <%= f.text_field :telephone %></p>
+  
+  <p><%= f.label t(:password) %> <i>(<%= t(:dont_change_passwd) -%>)</i><br />
+  <%= f.password_field :password %></p>
+
+  <p><%= f.label t(:password_confirmation) %><br />
+  <%= f.password_field :password_confirmation %></p>
+
+  <p><%= f.label t(:current_password) %> <i>(<%= t(:dont_change_passwd) -%>)</i><br />
+  <%= f.password_field :current_password %></p>
+
+  <p><%= f.label t(:site_name) %><br />
+  <%= text_field_tag "[user][site_attributes][name]", @user.site.name %></p>
+
+  <p><%= f.label t(:site_url) %><br />
+  <%= text_field_tag "[user][site_attributes][url]", @user.site.url %></p>
+
+  <p><%= f.submit t(:update) %></p>
+<% end %>

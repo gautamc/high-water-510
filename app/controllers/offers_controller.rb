@@ -5,19 +5,19 @@ class OffersController < ApplicationController
   # GET /offers
   # GET /offers.xml
   def index
-    @offers = Offer.where(:profile_id => current_user.profile.id)
-
+    @offers = Offer.where(:site_id => current_user.site.id)
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @offers.to_xml }
     end
   end
-
+  
   # GET /offers/1
   # GET /offers/1.xml
   def show
     @offer = Offer.find(params[:id])
-
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @offer }

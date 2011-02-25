@@ -7,8 +7,7 @@
       <%= f.label t(:name) %><br />
       <%= f.text_field :name %>
       <%- unless @place.errors[:name].empty? -%>
-        <br />
-        <span class="error">
+        <span class="field_error">
           <%= @place.errors[:name].join(", ") -%>
         </span>
       <%- end -%>
@@ -22,8 +21,7 @@
     <%= f.label t(:address) %><br />
     <%= f.text_area :address, :rows => 5 %>
     <%- unless @place.errors[:address].empty? -%>
-    <br />
-    <span class="error">
+    <span class="field_error">
       <%= @place.errors[:address].join(", ") -%>
     </span>
     <%- end -%>

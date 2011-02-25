@@ -11,3 +11,5 @@ pt-BR:
 
   dont_change_passwd: "deixar em branco se você não quiser alterá-la"
   prove_yourself: "precisamos de sua senha atual para confirmar as alterações"
+
+  account_settings: "Configurações da Conta"

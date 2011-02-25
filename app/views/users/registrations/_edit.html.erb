@@ -1,4 +1,4 @@
-<strong>Account Settings</strong><br />
+<strong><%= t(:account_settings) -%></strong><br />
 
 <%=
    form_for(
@@ -12,8 +12,7 @@
       <%= f.label t(:name) %><br />
       <%= f.text_field :name %>
       <%- unless @user.errors[:name].empty? -%>
-        <br />
-        <span class="error">
+        <span class="field_error">
           <%= @user.errors[:name].join(", ") -%>
         </span>
       <%- end -%>
@@ -27,8 +26,7 @@
       <%= f.label :email %><br />
       <%= f.email_field :email %>
       <%- unless @user.errors[:email].empty? -%>
-        <br />
-        <span class="error">
+        <span class="field_error">
           <%= @user.errors[:email].join(", ") -%>
         </span>
       <%- end -%>
@@ -42,8 +40,7 @@
       <%= f.label t(:telephone) %><br />
       <%= f.text_field :telephone %>
       <%- unless @user.errors[:telephone].empty? -%>
-        <br />
-        <span class="error">
+        <span class="field_error">
           <%= @user.errors[:telephone].join(", ") -%>
         </span>
       <%- end -%>
@@ -57,8 +54,7 @@
       <%= f.label t(:password) %> <i>(<%= t(:dont_change_passwd) -%>)</i><br />
       <%= f.password_field :password %>
       <%- unless @user.errors[:password].empty? -%>
-        <br />
-        <span class="error">
+        <span class="field_error">
           <%= @user.errors[:password].join(", ") -%>
         </span>
       <%- end -%>
@@ -72,24 +68,8 @@
       <%= f.label t(:password_confirmation) %><br />
       <%= f.password_field :password_confirmation %>
       <%- unless @user.errors[:password_confirmation].empty? -%>
-        <br />
-        <span class="error">
+        <span class="field_error">
           <%= @user.errors[:password_confirmation].join(", ") -%>
-        </span>
-      <%- end -%>
-    </span>
-  </div>
-
-  <br />
-
-  <div style="border: none;">
-    <span style="clear: none;">
-      <%= f.label t(:current_password) %> <i>(<%= t(:dont_change_passwd) -%>)</i><br />
-      <%= f.password_field :current_password %>
-      <%- unless @user.errors[:current_password].empty? -%>
-        <br />
-        <span class="error">
-          <%= @user.errors[:current_password].join(", ") -%>
         </span>
       <%- end -%>
     </span>
@@ -102,8 +82,7 @@
       <%= f.label t(:site_name) %><br />
       <%= text_field_tag "[user][site_attributes][name]", @user.site.name %>
       <%- unless @user.site.errors[:name].empty? -%>
-        <br />
-        <span class="error">
+        <span class="field_error">
           <%= @user.site.errors[:name].join(", ") -%>
         </span>
       <%- end -%>
@@ -117,17 +96,25 @@
       <%= f.label t(:site_url) %><br />
       <%= text_field_tag "[user][site_attributes][url]", @user.site.url %>
       <%- unless @user.site.errors[:url].empty? -%>
-        <br />
-          <%- @user.site.errors[:url].each do |err_msg| -%>
-          <span class="error"><%= err_msg %></span><br />
-          <%- end -%>
-        </span>
+        <span class="field_error">
+	  <%= @user.site.errors[:url].join(", ") %>
+	</span>
       <%- end -%>
     </span>
   </div>
 
   <br />
 
-  <p><%= f.submit t(:update) %></p>
+  <p>
+    <%= f.submit t(:update) %>
+    <span id="user_loading" style="display: none;"><strong>Loading...</strong></span>
+  </p>
 
 <%- end -%>
+
+<script>
+$(document).ready(function() {
+  $(".edit_user").bind("ajax:beforeSend", function() { $("#user_loading").show(); } );
+  $(".edit_user").bind("ajax:complete", function() { $("#user_loading").hide(); } );
+});
+</script>

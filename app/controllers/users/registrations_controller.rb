@@ -8,9 +8,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def update
     @user = current_user
+    if params[:user][:password].blank? && params[:user][:password_confirmation].blank?
+      params[:user][:password] = params[:user][:password_confirmation] = nil
+    end
     @user.attributes = params[:user]
     respond_to do |format|
       if @user.save
+        sign_in User, @user, :bypass => true
         format.html { render :partial => 'edit' }
         format.js
       else

@@ -11,3 +11,5 @@ en:
 
   dont_change_passwd: "Leave blank if you don't want to change it"
   prove_yourself: "we need your current password to confirm your changes"
+
+  account_settings: "Account Settings"

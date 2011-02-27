@@ -5,11 +5,12 @@ class OffersController < ApplicationController
   # GET /offers
   # GET /offers.xml
   def index
-    @offers = Offer.where(:site_id => current_user.site.id)
-    
+    params[:page] ||= 1
+    @offers = Offer.where(:site_id => current_user.site.id).paginate(:page => params[:page], :per_page => 10)
     respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @offers.to_xml }
+      format.html
+      format.xml
+      format.js { render :template => '/offers/index.js.erb' }
     end
   end
   
@@ -48,7 +49,8 @@ class OffersController < ApplicationController
 
     respond_to do |format|
       if @offer.save
-        @offers = Offer.where(:site_id => current_user.site.id)
+        last_page = Offer.count%10 == 0 ? Offer.count/10 : (Offer.count/10)+1
+        @offers = Offer.where(:site_id => current_user.site.id).paginate(:page => last_page, :per_page => 10)
         format.html { redirect_to(@offer, :notice => t(:create_success)) }
         format.xml  { render :xml => @offer, :status => :created, :location => @offer }
         format.js
@@ -67,7 +69,7 @@ class OffersController < ApplicationController
 
     respond_to do |format|
       if @offer.update_attributes(params[:offer])
-        @offers = Offer.where(:site_id => current_user.site.id)
+        @offers = Offer.where(:site_id => current_user.site.id).paginate(:page => 1, :per_page => 10)
         @offer = Offer.new
         format.html { redirect_to(@offer, :notice => t(:update_success)) }
         format.xml  { head :ok }

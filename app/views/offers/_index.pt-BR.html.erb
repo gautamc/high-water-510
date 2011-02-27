@@ -2,7 +2,7 @@
 
 <table>
   <tr>
-    <th>Título</th>
+    <th>Título @ Endereço</th>
     <th>Preço original</th>
     <th>Preço Final</th>
     <th>Percentual de Desconto</th>
@@ -12,9 +12,23 @@
     <th></th>
   </tr>
 
+  <tr>
+    <td colspan="8">
+      <%=
+	 will_paginate(
+	   @offers,
+	   :class => "offers_pagination",
+	   :params => { :controller => "offers", :action => "index" },
+           :renderer => 'UJSLinkRenderer'
+         )
+      -%>
+      <span class="offers_list_loading" style="display: none;"><strong>Loading...</strong></span>
+    </td>
+  </tr>
+
 <% @offers.each do |offer| %>
   <tr>
-    <td><%= offer.title -%></td>
+    <td><%= offer.title -%> <%= offer.place.nil? ? "" : " @ #{offer.place.name}" -%></td>
     <td><%= offer.original_price -%></td>
     <td><%= offer.final_price -%></td>
     <td><%= offer.discount_percentage -%></td>
@@ -41,4 +55,27 @@ $(document).ready(function() {
     </td>
   </tr>
 <% end %>
+
+  <tr>
+    <td colspan="8">
+      <%=
+	 will_paginate(
+	   @offers,
+	   :class => "offers_pagination",
+	   :params => { :controller => "offers", :action => "index" },
+           :renderer => 'UJSLinkRenderer'
+         )
+      -%>
+      <span class="offers_list_loading" style="display: none;"><strong>Loading...</strong></span>
+    </td>
+  </tr>
+
 </table>
+
+
+<script>
+$(document).ready(function() {
+  $("div.offers_pagination a").bind("ajax:beforeSend", function() { $(".offers_list_loading").show(); } );
+  $("div.offers_pagination a").bind("ajax:complete", function() { $(".offers_list_loading").hide(); } );
+});
+</script>

@@ -86,6 +86,26 @@
 
   <br />
   
+  <div style="border: none;">
+    <span style="clear: none;">
+    <%= f.label t(:place_name) %><br />
+    <%=
+       autocomplete_field_tag(
+         "[offer][place_attributes][name]",
+         @offer.place.nil? ? "" : @offer.place.name,
+         autocomplete_place_name_places_path
+       )
+    -%>
+    <%- unless @offer.errors[:place].empty? -%>
+    <span class="field_error">
+      <%= @offer.errors[:place].join(", ") -%>
+    </span>
+    <%- end -%>
+    </span>
+  </div>
+  
+  <br />
+  
   <div class="actions">
     <%= f.submit t(:save) %>
     <span id="offer_loading" style="display: none;"><strong>Loading...</strong></span>

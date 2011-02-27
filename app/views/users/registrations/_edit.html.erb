@@ -105,6 +105,14 @@
 
   <br />
 
+  <div style="border: none;">
+    <span style="clear: none;">
+      Offers XML Feed: <%= link_to(offers_url(:xml, :page => 1), offers_url(:xml, :page => 1)) -%>
+    </span>
+  </div>
+  
+  <br />
+  
   <p>
     <%= f.submit t(:update) %>
     <span id="user_loading" style="display: none;"><strong>Loading...</strong></span>

@@ -18,5 +18,7 @@ pt-BR:
               not_a_number: 'não é um valor numérico'
             expires_at:
               blank: 'Não pode estar em branco'
+            place:
+              blank: 'Não pode estar em branco'
             url:
               invalid: "não é válido"

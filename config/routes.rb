@@ -3,7 +3,9 @@ Stark::Application.routes.draw do
   root :to => "home#index"
   devise_for :users, :controllers => { :registrations => 'users/registrations' }
   resources :offers
-  resources :places
+  resources :places do
+    get :autocomplete_place_name, :on => :collection
+  end
     
   # The priority is based upon order of creation:
   # first created -> highest priority.

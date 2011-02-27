@@ -6,5 +6,6 @@ en:
           attributes:
             name:
               blank: 'Can not be blank'
+              taken: 'is already taken'
             address:
               blank: 'Can not be blank'

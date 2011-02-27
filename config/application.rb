@@ -67,3 +67,4 @@ module Stark
 end
 
 require 'monkeypatches'
+require 'ujs_link_renderer'

@@ -3,6 +3,7 @@ en:
   original_price: "Original Price"
   final_price: "Final Price"
   discount_percentage: "Discount Percentage"
+  place_name: "Place Name"
   expires_at: "Expires At"
   create_offer: "Create Offer"
 

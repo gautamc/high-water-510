@@ -8,6 +8,7 @@ class Place
   field :lng
   
   validates_presence_of :name, :address
+  validates_uniqueness_of :name
 
   references_many :offers
   

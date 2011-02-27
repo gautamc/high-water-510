@@ -1,13 +1,49 @@
 <strong>Todos os Lugares</strong><br />
 <table>
+
   <tr>
-    <th>Name</th>
-    <th>Address</th>
+    <th>Nome</th>
+    <th>Endereço</th>
   </tr>
+
+  <tr>
+    <td colspan="2">
+      <%=
+	 will_paginate(
+	   @places,
+	   :params => { :controller => "places", :action => "index" },
+           :renderer => 'UJSLinkRenderer'
+         )
+      -%>
+      <span class="places_list_loading" style="display: none;"><strong>Loading...</strong></span>
+    </td>
+  </tr>
+
   <% @places.each do |place| %>
   <tr>
     <td><%= place.name %></td>
     <td><%= place.address %></td>
   </tr>
   <%- end -%>
+
+  <tr>
+    <td colspan="2">
+      <%=
+	 will_paginate(
+	   @places,
+	   :params => { :controller => "places", :action => "index" },
+           :renderer => 'UJSLinkRenderer'
+         )
+      -%>
+      <span class="places_list_loading" style="display: none;"><strong>Loading...</strong></span>
+    </td>
+  </tr>
+
 </table>
+
+<script>
+$(document).ready(function() {
+  $("div.pagination a").bind("ajax:beforeSend", function() { $(".places_list_loading").show(); } );
+  $("div.pagination a").bind("ajax:complete", function() { $(".places_list_loading").hide(); } );
+});
+</script>

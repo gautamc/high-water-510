@@ -6,5 +6,6 @@ pt-BR:
           attributes:
             name:
               blank: 'Não pode estar em branco'
+              taken: 'já está tomada'
             address:
               blank: 'Não pode estar em branco'

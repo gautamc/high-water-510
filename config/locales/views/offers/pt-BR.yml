@@ -3,6 +3,7 @@ pt-BR:
   original_price: "Preço original"
   final_price: "Preço Final"
   discount_percentage: "Percentual de Desconto"
+  place_name: "Place Name"
   expires_at: "Expira Em"
   create_offer: "Criar Oferta"
 

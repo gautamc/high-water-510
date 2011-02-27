@@ -9,14 +9,25 @@ class Offer
   field :expires_at, :type => DateTime
   field :url
   
-  validates_presence_of :title, :original_price, :final_price, :discount_percentage, :expires_at
+  referenced_in :site
+  referenced_in :place
+  
+  validates_presence_of :title, :original_price, :final_price, :discount_percentage, :expires_at, :place
   validates_length_of :title, :minimum => 5
   validates_numericality_of :original_price
   validates_numericality_of :final_price
   validates_numericality_of :discount_percentage
-  validates_format_of :url, :with => /^(http|https):\/\/.*/
+  #validates_format_of :url, :with => /^(http|https):\/\/.*/
   
-  referenced_in :site
-  referenced_in :place
+  attr_accessible :title, :final_price, :original_price, :discount_percentage, :expires_at, :url, :place_attributes
+  
+  after_save lambda {
+    |record|
+    record.place.save! if !record.place.persisted? || record.place.changed?
+  }
+  
+  def place_attributes=(params)
+    self.place = Place.where(:name => params[:name]).first
+  end
   
 end

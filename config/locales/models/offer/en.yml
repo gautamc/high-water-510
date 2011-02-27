@@ -18,5 +18,7 @@ en:
               not_a_number: 'is not a numeric value'
             expires_at:
               blank: 'Can not be blank'
+            place:
+              blank: 'Can not be blank'
             url:
               invalid: 'format is not valid (Must be like http://sitename...)'

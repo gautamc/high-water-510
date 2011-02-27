@@ -68,3 +68,4 @@ end
 
 require 'monkeypatches'
 require 'ujs_link_renderer'
+require 'smtp_tls'

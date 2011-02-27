@@ -7,6 +7,7 @@ pt-BR:
   current_password: "senha atual"
   site_name: "Nome do Site"
   site_url: "URL do site"
+  xml_feed_url: "Seu Ofertas XML Feed URL"
   telephone: "Telefone"
 
   dont_change_passwd: "deixar em branco se você não quiser alterá-la"

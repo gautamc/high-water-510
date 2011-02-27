@@ -6,4 +6,4 @@ pt-BR:
           attributes:
             url:
               blank: 'Não pode estar em branco'
-              invalid: 'não possui formato válido. Deve ser assim: http://sitename...'
+              invalid: 'é inválido, deve ser uma URL válida'

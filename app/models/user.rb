@@ -15,14 +15,21 @@ class User
   
   field :name
   field :telephone
+  field :xml_feed_url
 
   references_one :site
   accepts_nested_attributes_for :site
   
   validates_presence_of :name, :telephone
+  validates_format_of(
+    :xml_feed_url,
+    :with => /^(http|https):\/\/.*/,
+    :allow_nil => true,
+    :allow_blank => true
+  )
   validates_associated :site
   
-  attr_accessible :email, :password, :password_confirmation, :name, :telephone, :site_attributes
+  attr_accessible :email, :password, :password_confirmation, :name, :telephone, :site_attributes, :xml_feed_url
   
   after_save lambda {
     |record|

@@ -17,3 +17,5 @@ pt-BR:
               blank: 'Não pode estar em branco'
             site:
               invalid: "não é válido"
+            xml_feed_url:
+              invalid: "é inválido, deve ser uma URL válida"

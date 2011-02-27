@@ -6,4 +6,4 @@ en:
           attributes:
             url:
               blank: 'can not be blank'
-              invalid: 'format is not valid (Must be like http://sitename...)'
+              invalid: 'is invalid, must be a valid URL'

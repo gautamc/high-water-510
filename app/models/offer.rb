@@ -17,7 +17,7 @@ class Offer
   validates_numericality_of :original_price
   validates_numericality_of :final_price
   validates_numericality_of :discount_percentage
-  #validates_format_of :url, :with => /^(http|https):\/\/.*/
+  validates_format_of :url, :with => /^(http|https):\/\/.*/, :allow_nil => true, :allow_blank => true
   
   attr_accessible :title, :final_price, :original_price, :discount_percentage, :expires_at, :url, :place_attributes
   

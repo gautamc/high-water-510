@@ -48,6 +48,20 @@
   </div>
 
   <br />
+
+  <div style="border: none;">
+    <span style="clear: none;">
+      <%= f.label t(:xml_feed_url) %><br />
+      <%= f.text_field :xml_feed_url %>
+      <%- unless @user.errors[:xml_feed_url].empty? -%>
+        <span class="field_error">
+          <%= @user.errors[:xml_feed_url].join(", ") -%>
+        </span>
+      <%- end -%>
+    </span>
+  </div>
+
+  <br />
   
   <div style="border: none;">
     <span style="clear: none;">

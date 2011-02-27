@@ -1,4 +1,4 @@
-pt-BR:
+en:
   mongoid:
     errors:
       models:
@@ -12,3 +12,5 @@ pt-BR:
               blank: "Can not be blank"
             telephone:
               blank: "Can not be blank"
+            xml_feed_url:
+              invalid: "is invalid, must be a valid URL"

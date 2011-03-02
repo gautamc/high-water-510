@@ -8,7 +8,7 @@ class Site
   referenced_in :user
   references_many :offers
   
-  validates_presence_of :url
-  validates_format_of :url, :with => /^(http|https):\/\/.*/
+  #validates_presence_of :url
+  #validates_format_of :url, :with => /^(http|https):\/\/.*/
   
 end

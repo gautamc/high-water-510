@@ -18,12 +18,12 @@ a:hover { color: #fff; background-color:#000; }*/
 
 .header {
   height: 70px; text-align: center;
-  background-color: #E0FFFF; color: #000000;
+  background-color: #FFFFFF; color: #000000;
 }
 
 .footer {
   height: 70px; text-align: center;
-  background-color: #E0FFFF; color: #000000;
+  background-color: #FFFFFF; color: #000000;
 }
 
 .fieldWithErrors {

@@ -37,34 +37,6 @@
 
   <div style="border: none;">
     <span style="clear: none;">
-      <%= f.label t(:telephone) %><br />
-      <%= f.text_field :telephone %>
-      <%- unless @user.errors[:telephone].empty? -%>
-        <span class="field_error">
-          <%= @user.errors[:telephone].join(", ") -%>
-        </span>
-      <%- end -%>
-    </span>
-  </div>
-
-  <br />
-
-  <div style="border: none;">
-    <span style="clear: none;">
-      <%= f.label t(:xml_feed_url) %><br />
-      <%= f.text_field :xml_feed_url %>
-      <%- unless @user.errors[:xml_feed_url].empty? -%>
-        <span class="field_error">
-          <%= @user.errors[:xml_feed_url].join(", ") -%>
-        </span>
-      <%- end -%>
-    </span>
-  </div>
-
-  <br />
-  
-  <div style="border: none;">
-    <span style="clear: none;">
       <%= f.label t(:password) %> <i>(<%= t(:dont_change_passwd) -%>)</i><br />
       <%= f.password_field :password %>
       <%- unless @user.errors[:password].empty? -%>
@@ -91,42 +63,11 @@
 
   <br />
 
-  <div style="border: none;">
-    <span style="clear: none;">
-      <%= f.label t(:site_name) %><br />
-      <%= text_field_tag "[user][site_attributes][name]", @user.site.name %>
-      <%- unless @user.site.errors[:name].empty? -%>
-        <span class="field_error">
-          <%= @user.site.errors[:name].join(", ") -%>
-        </span>
-      <%- end -%>
-    </span>
-  </div>
+  <%= hidden_field_tag "[user][site_attributes][name]", @user.site.name %>
+  <%= hidden_field_tag "[user][site_attributes][url]", @user.site.url %>
 
   <br />
-
-  <div style="border: none;">
-    <span style="clear: none;">
-      <%= f.label t(:site_url) %><br />
-      <%= text_field_tag "[user][site_attributes][url]", @user.site.url %>
-      <%- unless @user.site.errors[:url].empty? -%>
-        <span class="field_error">
-	  <%= @user.site.errors[:url].join(", ") %>
-	</span>
-      <%- end -%>
-    </span>
-  </div>
-
-  <br />
-
-  <div style="border: none;">
-    <span style="clear: none;">
-      Offers XML Feed: <%= link_to(offers_url(:xml, :page => 1), offers_url(:xml, :page => 1)) -%>
-    </span>
-  </div>
-  
-  <br />
-  
+ 
   <p>
     <%= f.submit t(:update) %>
     <span id="user_loading" style="display: none;"><strong>Loading...</strong></span>

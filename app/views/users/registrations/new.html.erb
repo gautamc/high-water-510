@@ -58,59 +58,8 @@
 
   <br />
 
-  <div style="border: none;">
-    <span style="clear: none;">
-      <%= f.label t(:site_name) %><br />
-      <%= text_field_tag "[user][site_attributes][name]", @user.site.name %>
-      <%- unless @user.site.errors[:name].empty? -%>
-        <span class="field_error">
-          <%= @user.site.errors[:name].join(", ") -%>
-        </span>
-      <%- end -%>
-    </span>
-  </div>
-
-  <br />
-
-  <div style="border: none;">
-    <span style="clear: none;">
-      <%= f.label t(:site_url) %><br />
-      <%= text_field_tag "[user][site_attributes][url]", @user.site.url %>
-      <%- unless @user.site.errors[:url].empty? -%>
-        <span class="field_error">
-	  <%= @user.site.errors[:url].join(", ") %>
-	</span>
-      <%- end -%>
-    </span>
-  </div>
-
-  <div style="border: none;">
-    <span style="clear: none;">
-      <%= f.label t(:telephone) %><br />
-      <%= f.text_field :telephone %>
-      <%- unless @user.errors[:telephone].empty? -%>
-        <span class="field_error">
-          <%= @user.errors[:telephone].join(", ") -%>
-        </span>
-      <%- end -%>
-    </span>
-  </div>
-
-  <br /> 
-
-  <div style="border: none;">
-    <span style="clear: none;">
-      <%= f.label t(:xml_feed_url) %><br />
-      <%= f.text_field :xml_feed_url %>
-      <%- unless @user.errors[:xml_feed_url].empty? -%>
-        <span class="field_error">
-          <%= @user.errors[:xml_feed_url].join(", ") -%>
-        </span>
-      <%- end -%>
-    </span>
-  </div>
-
-  <br />
+  <%= hidden_field_tag "[user][site_attributes][name]", @user.site.name %>
+  <%= hidden_field_tag "[user][site_attributes][url]", @user.site.url %>
 
   <p><%= f.submit t(:sign_up) %></p>
 <% end %>

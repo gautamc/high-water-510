@@ -20,7 +20,7 @@ class User
   references_one :site
   accepts_nested_attributes_for :site
   
-  validates_presence_of :name, :telephone
+  validates_presence_of :name
   validates_format_of(
     :xml_feed_url,
     :with => /^(http|https):\/\/.*/,
@@ -33,7 +33,7 @@ class User
   
   after_save lambda {
     |record|
-    record.site.save! if !record.site.persisted? || record.site.changed?
+    record.site.save! if !record.site.nil? && (!record.site.persisted? || record.site.changed?)
   }
   
   def site_attributes=(params)

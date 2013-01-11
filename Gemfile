@@ -1,16 +1,16 @@
 source 'http://rubygems.org'
 
 gem "rails", "3.2.11"
-gem "mongoid", "~> 3.0.0"
+gem "mongoid"
 gem "bson"
 gem "bson_ext"
 gem "devise"
-gem "jquery-rails", ">= 0.2.6"
+gem "jquery-rails"
 #gem "rack-cache", :require => "rack/cache"
 #gem "dragonfly"
 gem "heroku"
 gem "rails3-jquery-autocomplete"
-gem "will_paginate", "~> 3.0.beta"
+gem "will_paginate"
 
 
 group :development, :test do

@@ -140,9 +140,9 @@ DEPENDENCIES
   bson_ext
   devise
   heroku
-  jquery-rails (>= 0.2.6)
-  mongoid (~> 3.0.0)
+  jquery-rails
+  mongoid
   rails (= 3.2.11)
   rails3-jquery-autocomplete
   rspec-rails (~> 2.0)
-  will_paginate (~> 3.0.beta)
+  will_paginate

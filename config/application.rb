@@ -12,7 +12,6 @@ if ENV['MONGOHQ_URL']
   ENV['MONGOID_DATABASE'] = mongo_uri.path.gsub('/', '')
 end
 
-require 'mongoid/railtie'
 # Pick the frameworks you want:
 # require "active_record/railtie"
 require "action_controller/railtie"

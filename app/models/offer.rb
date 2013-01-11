@@ -9,8 +9,8 @@ class Offer
   field :expires_at, :type => DateTime
   field :url
   
-  referenced_in :site
-  referenced_in :place
+  belongs_in :site
+  belongs_in :place
   
   validates_presence_of :title, :original_price, :final_price, :discount_percentage, :expires_at, :place
   validates_length_of :title, :minimum => 5

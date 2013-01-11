@@ -17,7 +17,7 @@ class User
   field :telephone
   field :xml_feed_url
 
-  references_one :site
+  has_one :site
   accepts_nested_attributes_for :site
   
   validates_presence_of :name

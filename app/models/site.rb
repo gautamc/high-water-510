@@ -5,8 +5,8 @@ class Site
   field :name
   field :url
   
-  referenced_in :user
-  references_many :offers
+  belongs_in :user
+  has_many :offers
   
   #validates_presence_of :url
   #validates_format_of :url, :with => /^(http|https):\/\/.*/

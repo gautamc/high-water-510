@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 gem "rails", "3.2.11"
-gem "mongoid"
+gem "mongoid", "~> 3.0.0"
 gem "bson"
 gem "bson_ext"
 gem "devise"

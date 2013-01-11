@@ -10,6 +10,6 @@ class Place
   validates_presence_of :name, :address
   validates_uniqueness_of :name
 
-  references_many :offers
+  has_many :offers
   
 end

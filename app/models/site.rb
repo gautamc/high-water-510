@@ -5,7 +5,7 @@ class Site
   field :name
   field :url
   
-  belongs_in :user
+  belongs_to :user
   has_many :offers
   
   #validates_presence_of :url

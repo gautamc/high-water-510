@@ -79,4 +79,6 @@ test:
         max_retries: 1
         retry_interval: 0
 production:
-  uri: <%= ENV['MONGOLAB_URI'] %>
+  sessions:
+    default:
+      uri: <%= ENV['MONGOLAB_URI'] %>
